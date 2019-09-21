@@ -1,1 +1,1 @@
-This repository contains my solutions to exercises of [Eloquent JavaScript](https://eloquentjavascript.net/).
+My solutions to exercises of [Eloquent JavaScript](https://eloquentjavascript.net/).
