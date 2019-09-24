@@ -18,11 +18,15 @@ const parseExpression = function(program) {
 
 module.exports.parseExpression = parseExpression;
 
-const skipSpace = function(string) {
-    let first = string.search(/\S/);
-    if (first == -1) return '';
-    return string.slice(first);
-};
+// I add this here in order so solve the coments challenge:
+
+const skipSpace =
+    require('./comments_definitionSkipSpace').skipSpace ||
+    function(string) {
+        let first = string.search(/\S/);
+        if (first == -1) return '';
+        return string.slice(first);
+    };
 
 module.exports.skipSpace = skipSpace;
 
