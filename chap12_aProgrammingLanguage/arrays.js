@@ -19,11 +19,6 @@ topScope.element = (array, n) => {
 };
 
 // Testing:
-// run(`do(define(x, array(10, 234)),
-// print(x),
-// print(length(x)),
-// print(element(x, 1))
-// )`);
 
 run(`
 do(define(sum, fun(array,
