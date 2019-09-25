@@ -18,7 +18,7 @@ const parseExpression = function(program) {
 
 module.exports.parseExpression = parseExpression;
 
-// I add this here in order so solve the coments challenge:
+// I add this here in order so solve the comments challenge:
 
 const skipSpace =
     require('./comments_definitionSkipSpace').skipSpace ||
@@ -174,6 +174,9 @@ specialForms.fun = (args, scope) => {
         return evaluate(body, localScope);
     };
 };
+
+// I add this here in order so solve the fixingScope challenge:
+specialForms.set = require('./fixingScope_setDefinition') || null;
 
 module.exports.topScope = topScope;
 module.exports.specialForms = specialForms;
