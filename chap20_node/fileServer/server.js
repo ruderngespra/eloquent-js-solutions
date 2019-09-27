@@ -4,6 +4,7 @@ const { createServer } = require('http');
 const methods = Object.create(null);
 
 createServer((request, response) => {
+    console.log(request.method);
     let handler = methods[request.method] || notAllowed;
     handler(request)
         .catch(error => {
@@ -37,6 +38,8 @@ function urlPath(url) {
     }
     return path;
 }
+
+module.exports.urlPath = urlPath;
 
 const { createReadStream } = require('fs');
 const { stat, readdir } = require('fs').promises;
@@ -72,7 +75,7 @@ methods.DELETE = async function(request) {
     try {
         stats = await stat(path);
     } catch (err) {
-        if (error.code != ENOENT) {
+        if (err.code != 'ENOENT') {
             throw error;
         } else {
             return { status: 204 };
@@ -102,3 +105,7 @@ methods.PUT = async function(request) {
     await pipeStream(request, createWriteStream(path));
     return { status: 204 };
 };
+
+// For exercise directory creation:
+
+methods.MKCOL = require('../directoryCreation.js') || null;
